@@ -4,13 +4,16 @@ const $n = document.querySelector('name');
 const $b = document.querySelector('#blog');
 const $l = document.querySelector('.location');
 
-function displayUser(username) {
+
+//Se debe agregar async porque se está ocupando un await.
+async function displayUser(username) {
   $n.textContent = 'cargando...';
   const response = await fetch(`${usersEndpoint}/${username}`);
+  const data = await response.json(); // se agrega esta línea par ainformar que hay una promesa y se lea como JSON
   console.log(data);
-  $n.textContent = '${data.name}';
-  $b.textContent = '${data.blog}';
-  $l.textContent = '${data.location}';
+  $n.textContent = `${data.name}`; // se cambian las comillas simples por backticks
+  $b.textContent = `${data.blog}`;  // se cambian las comillas simples por backticks
+  $l.textContent = `${data.location}`;  // se cambian las comillas simples por backticks
 }
 
 function handleError(err) {
