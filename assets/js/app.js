@@ -3,6 +3,7 @@ const usersEndpoint = `${baseEndpoint}/users`;
 const $n = document.querySelector('.name'); //se coloca el punto
 const $b = document.querySelector('.blog'); // se quita hashtag de blog
 const $l = document.querySelector('.location');
+const button = document.querySelector ('.btn'); //se agrega botón
 
 
 //Se debe agregar async porque se está ocupando un await.
